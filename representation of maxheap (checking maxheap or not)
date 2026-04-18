@@ -1,0 +1,14 @@
+class Solution:
+    def isMaxHeap(self,arr,n):
+        def heapifyDown(arr,ind):
+            largest=ind
+            lchild=2*ind+1
+            rchild=2*ind+2
+            if(lchild<len(arr) and arr[lchild]>arr[largest]):
+                return False
+            if(rchild<len(arr) and arr[rchild]>arr[largest]):
+                return False
+        for ind in range(0,n//2):
+            if(heapifyDown(arr,ind)==False):
+                return False
+        return True
